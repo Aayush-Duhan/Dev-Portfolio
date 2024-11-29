@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  html {
+    @apply scroll-smooth;
+    cursor: none !important;
+  }
+
+  a, button, input, textarea, [role="button"] {
+    cursor: none !important;
+  }
+
+  body {
+    @apply bg-primary text-textPrimary antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply relative w-full py-16 overflow-hidden;
+  }
+
+  .section-background {
+    @apply absolute inset-0;
+  }
+
+  .section-background::before {
+    @apply content-[''] absolute inset-0 bg-gradient-radial from-secondary/10 via-transparent to-transparent opacity-50;
+  }
+
+  .section-background::after {
+    @apply content-[''] absolute inset-0 bg-grid-pattern opacity-[0.03];
+  }
+
+  .section-content {
+    @apply max-w-6xl mx-auto px-6 sm:px-16 relative z-10;
+  }
+
+  .section-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-6 
+           bg-gradient-to-r from-secondary via-secondary/80 to-blue-400 
+           text-transparent bg-clip-text inline-block;
+  }
+
+  .section-subheading {
+    @apply text-lg sm:text-xl text-textSecondary mb-8 max-w-2xl;
+  }
+
+  .card {
+    @apply bg-primary/40 backdrop-blur-sm rounded-lg p-6
+           border border-secondary/20 transition-all duration-300
+           hover:border-secondary/40 hover:shadow-lg hover:shadow-secondary/10;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-secondary 
+           relative overflow-hidden rounded font-medium whitespace-nowrap
+           border border-secondary/50 bg-transparent
+           transition-all duration-300 ease-in-out
+           hover:border-secondary/80 hover:text-primary
+           focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-primary::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-secondary 
+           -translate-x-full transform transition-transform duration-300 ease-in-out
+           hover:scale-105;
+  }
+
+  .btn-primary:hover::before {
+    @apply translate-x-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-secondary
+           relative overflow-hidden rounded font-medium whitespace-nowrap
+           border border-secondary/50
+           transition-all duration-500 ease-out
+           hover:border-secondary hover:shadow-[0_0_15px_rgba(100,255,218,0.3)]
+           focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-primary;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 25%,
+      rgba(100, 255, 218, 0.1) 45%,
+      rgba(100, 255, 218, 0.15) 50%,
+      rgba(100, 255, 218, 0.1) 55%,
+      transparent 75%,
+      transparent 100%
+    );
+    background-size: 250% 100%;
+    background-position: 100% 0;
+  }
+
+  .btn-secondary:hover {
+    background-position: 0 0;
+    transition: 0.7s ease-in-out;
+  }
+
+  .btn-secondary::before {
+    @apply content-[''] absolute inset-0 opacity-0
+           transition-opacity duration-500 ease-out;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(100, 255, 218, 0.05) 10%,
+      rgba(100, 255, 218, 0.1) 20%,
+      rgba(100, 255, 218, 0.15) 30%,
+      rgba(100, 255, 218, 0.2) 40%,
+      rgba(100, 255, 218, 0.15) 50%,
+      rgba(100, 255, 218, 0.1) 60%,
+      rgba(100, 255, 218, 0.05) 70%,
+      transparent 80%
+    );
+  }
+
+  .btn-secondary:hover::before {
+    @apply opacity-100;
+  }
+
+  .nav-link {
+    @apply text-sm lg:text-base text-textSecondary hover:text-secondary transition-colors px-3 py-2
+           relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
+           after:bg-secondary after:transition-all hover:after:w-full;
+  }
+
+  .mobile-nav-link {
+    @apply text-textSecondary hover:text-secondary transition-colors px-4 py-2
+           text-lg font-medium w-full hover:bg-secondary/5;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-secondary via-secondary/80 to-blue-400 
+           text-transparent bg-clip-text;
+    background-size: 200% auto;
+    animation: gradient 3s linear infinite;
+  }
+
+  .neon-btn {
+    @apply relative inline-flex items-center justify-center px-6 py-3
+           font-medium text-secondary rounded-lg
+           transition-all duration-500 overflow-hidden
+           border border-secondary/30 hover:border-secondary;
+  }
+
+  .neon-btn::before,
+  .neon-btn::after {
+    content: '';
+    @apply absolute w-32 h-32 opacity-0 transition-all duration-500;
+    background: radial-gradient(circle, rgba(100, 255, 218, 0.3) 0%, transparent 60%);
+  }
+
+  .neon-btn::before {
+    @apply -left-16 -top-16;
+    transition-delay: 0.1s;
+  }
+
+  .neon-btn::after {
+    @apply -right-16 -bottom-16;
+    transition-delay: 0.2s;
+  }
+
+  .neon-btn:hover::before,
+  .neon-btn:hover::after {
+    @apply opacity-100;
+  }
+
+  .neon-btn:hover::before {
+    @apply -translate-x-6 -translate-y-6;
+  }
+
+  .neon-btn:hover::after {
+    @apply translate-x-6 translate-y-6;
+  }
+
+  .neon-btn .btn-text {
+    @apply relative z-10 flex items-center gap-2;
+  }
+
+  .neon-btn .btn-text span {
+    @apply transition-transform duration-500;
+  }
+
+  .neon-btn:hover .btn-text span {
+    @apply -translate-x-1;
+  }
+
+  .neon-btn:hover .btn-text svg {
+    @apply translate-x-1;
+  }
+
+  .neon-btn .btn-glow {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+  }
+
+  .neon-btn:hover .btn-glow {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(100, 255, 218, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(100, 255, 218, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle at center,
+      var(--tw-gradient-from) 0%,
+      var(--tw-gradient-via) 50%,
+      var(--tw-gradient-to) 100%
+    );
+  }
+
+  .animate-gradient {
+    background-size: 200% auto;
+    animation: gradient 4s linear infinite;
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary/20 rounded-full hover:bg-secondary/30 transition-colors;
+}
+
+/* Selection Color */
+::selection {
+  @apply bg-secondary/30 text-textPrimary;
+}
+
+/* Custom Cursor */
+@keyframes cursor-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7),
+                inset 0 0 25px rgba(255, 255, 255, 0.7);
+  }
+}
+
+.cursor-main {
+  @apply fixed pointer-events-none;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  animation: cursor-glow 2s infinite ease-in-out;
+}
+
+.cursor-dot {
+  @apply fixed pointer-events-none;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.cursor-trail {
+  @apply fixed pointer-events-none;
+  width: 4px;
+  height: 4px;
+  background: rgba(100, 255, 218, 0.3);
+  border-radius: 50%;
+  z-index: 9998;
+  transition: all 0.1s ease;
+}
+
+@media (max-width: 768px) {
+  .cursor-main, .cursor-dot {
+    display: none;
+  }
+  
+  html, a, button, input, textarea, [role="button"] {
+    cursor: auto !important;
+  }
+}
