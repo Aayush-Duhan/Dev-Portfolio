@@ -192,7 +192,7 @@ const About = () => {
 
                   <div className="mt-6 flex flex-wrap gap-4">
                     <motion.a
-                      href="/src/assets/Resume.pdf"
+                      href="/Resume.pdf"
                       download="Aayush_Duhan_Resume.pdf"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

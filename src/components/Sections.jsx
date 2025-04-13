@@ -498,7 +498,7 @@ const Resume = () => {
       {/* Download Resume Button */}
       <div className="flex justify-center mt-12">
         <motion.a
-          href="/path-to-your-resume.pdf"
+          href="/Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 border-2 border-secondary text-secondary hover:bg-secondary/10 transition-colors rounded-sm font-medium"

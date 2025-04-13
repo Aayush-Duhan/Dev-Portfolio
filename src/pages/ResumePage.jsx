@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const ResumePage = () => { // Renamed component to ResumePage
   const handleDownload = () => {
-    // Use the actual resume file path from assets folder
-    const resumeUrl = '/src/assets/Resume.pdf';
+    // Use the resume file from the public folder
+    const resumeUrl = '/Resume.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'Aayush_Duhan_Resume.pdf';
