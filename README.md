@@ -85,6 +85,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contact
 
-Aayush Sharma - [LinkedIn](https://www.linkedin.com/in/aayush-duhan-245167253/) - aayushduhan82@gmail.com
+Aayush Duhan - [LinkedIn](https://www.linkedin.com/in/aayush-duhan-245167253/) - aayushduhan82@gmail.com
 
 Project Link: [https://github.com/Aayush-Duhan/Dev-Portfolio](https://github.com/Aayush-Duhan/Dev-Portfolio)
