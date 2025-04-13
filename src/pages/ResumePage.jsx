@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiArrowLeft } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-const Resume = () => {
+const ResumePage = () => { // Renamed component to ResumePage
   const handleDownload = () => {
-    // Replace with your actual resume file path
-    const resumeUrl = '/resume.pdf';
+    // Use the actual resume file path from assets folder
+    const resumeUrl = '/src/assets/Resume.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
-    link.download = 'Aayush_Resume.pdf';
+    link.download = 'Aayush_Duhan_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -18,7 +18,7 @@ const Resume = () => {
     <section className="min-h-screen pt-20 bg-primary/50">
       <div className="max-w-7xl mx-auto px-6 sm:px-16 py-16">
         {/* Back button */}
-        <Link 
+        <Link
           to="/"
           className="inline-flex items-center gap-2 text-textSecondary hover:text-secondary transition-colors mb-8"
         >
@@ -55,10 +55,21 @@ const Resume = () => {
         >
           <button
             onClick={handleDownload}
-            className="btn-primary flex items-center gap-2"
+            className="group inline-flex items-center justify-center px-6 py-3 text-secondary
+                     overflow-hidden rounded font-medium whitespace-nowrap
+                     border border-secondary/50 bg-transparent
+                     transition-all duration-300 ease-in-out
+                     hover:border-secondary/80
+                     focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-primary
+                     gap-2 relative"
           >
-            <FiDownload className="text-xl" />
-            Download Resume
+            {/* Background slide effect */}
+            <span className="absolute inset-0 w-full h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            {/* Content */}
+            <span className="relative z-10 flex items-center gap-2 group-hover:text-black transition-colors duration-300">
+              <FiDownload className="text-xl" />
+              Download Resume
+            </span>
           </button>
         </motion.div>
 
@@ -67,7 +78,7 @@ const Resume = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-tertiary/30 rounded-lg p-8 backdrop-blur-sm"
+          className="bg-tertiary/30 rounded-lg p-8 backdrop-blur-xs"
         >
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Education Section */}
@@ -181,4 +192,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default ResumePage; // Export the renamed component

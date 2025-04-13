@@ -24,10 +24,10 @@ dist-ssr
 
 # Misc
 .DS_Store
-# Environment files
+# Environment files - ignore all env files for security
 .env
-.env.local
-.env.*.local
+.env.*
+*.env
 
 # Editor directories and files
 .vscode/*
